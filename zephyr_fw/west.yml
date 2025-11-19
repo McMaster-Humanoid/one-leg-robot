@@ -6,12 +6,12 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject
-      revision: v3.7.0    # Compatible with SDK 0.17.4
+      revision: v3.7.0 # Compatible with SDK 0.17.4
       import:
         name-allowlist:
-          - hal_espressif   # Needed for ESP32 boards
+          - hal_espressif # Needed for ESP32 boards
           - cmsis
           - mbedtls
 
   self:
-    path: zephy_fw
+    path: zephyr_fw
