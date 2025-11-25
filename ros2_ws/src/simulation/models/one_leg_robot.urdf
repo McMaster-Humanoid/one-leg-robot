@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot name="mega_leg">
+
+  <!-- material -->
+  <material name="gray">
+    <color rgba="0.6 0.6 0.6 1"/> <!-- gray -->
+  </material>
+
+  <!-- upper leg -->
+  <link name="upper_leg">
+    <visual>
+      <geometry>
+        <cylinder radius="0.6" length="2.0"/> <!-- size, rad len -->
+      </geometry>
+      <origin xyz="0 0 0"/> <!-- centered -->
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- knee joint -->
+  <joint name="knee_joint" type="continuous">
+    <parent link="upper_leg"/>
+    <child link="lower_leg"/>
+    <origin xyz="0 0 -1.0"/> <!-- attach at bottom of upper leg -->
+    <axis xyz="1 0 0"/> <!-- rotation axis -->
+  </joint>
+
+  <!-- lower leg -->
+  <link name="lower_leg">
+    <visual>
+      <geometry>
+        <cylinder radius="0.5" length="2.0"/> <!-- size, rad len -->
+      </geometry>
+      <origin xyz="0 0 0"/> <!-- centered -->
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <!-- ankle -->
+  <joint name="ankle_joint" type="continuous">
+    <parent link="lower_leg"/>
+    <child link="foot"/>
+    <origin xyz="0 0 -1.0"/> <!-- attach at bottom of lower leg -->
+    <axis xyz="1 0 0"/> <!-- rotation axis -->
+  </joint>
+
+  <!-- foot -->
+  <link name="foot">
+    <visual>
+      <geometry>
+        <box size="1.0 0.6 0.4"/> <!-- foot size, len wid height -->
+      </geometry>
+      <origin xyz="0.4 0 -0.2"/> <!-- position on the board-->
+      <material name="gray"/>
+    </visual>
+  </link>
+
+</robot>
