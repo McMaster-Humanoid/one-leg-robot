@@ -8,6 +8,37 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+# Generate messages
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/RemoteInput.msg"
+  DEPENDENCIES std_msgs
+)
+
+# Add executable for joystick handler
+add_executable(joystick_handler joystick_handler.cpp)
+ament_target_dependencies(joystick_handler 
+  rclcpp
+)
+rosidl_get_typesupport_target(cpp_typesupport_target
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+target_link_libraries(joystick_handler "${cpp_typesupport_target}")
+
+# Add executable for joystick test node
+add_executable(joystick_test_node joystick_test_node.cpp)
+ament_target_dependencies(joystick_test_node 
+  rclcpp
+)
+target_link_libraries(joystick_test_node "${cpp_typesupport_target}")
+
+# Install the executables
+install(TARGETS
+  joystick_handler
+  joystick_test_node
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
