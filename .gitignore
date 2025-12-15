@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+rl-training/__pycache__/
+rl-training/checkpoints/
+rl-training/logs/
+rl-training/videos/

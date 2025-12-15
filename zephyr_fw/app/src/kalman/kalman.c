@@ -69,7 +69,7 @@ double *mat_transpose(const double *A, int r, int c) {
     return T;
 }
 
-/* In-place Gauss-Jordan inversion for square matrix. Returns new matrix (copy of inverse). */
+/* In-place Gauss-Jordan inversion for square matrix. Returns new matrix (copy of inverse). [consider optimizing this by using LU decomposition instead] */
 double *mat_inv(const double *A, int n) {
     // We'll form augmented [A | I] and row-reduce.
     double *aug = mat_alloc(n, 2*n);
