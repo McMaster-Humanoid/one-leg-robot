@@ -58,3 +58,18 @@ rl-training/__pycache__/
 rl-training/checkpoints/
 rl-training/logs/
 rl-training/videos/
+
+# STL mesh files (too large for git)
+*.STL
+*.stl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# RL training logs and checkpoints
+rl-training-genesis/__pycache__/
+rl-training-genesis/logs/
