@@ -9,7 +9,7 @@ from genesis.utils.misc import tensor_to_array
 def gs_rand(lower, upper, batch_shape):
     return (upper - lower) * torch.rand(size=(*batch_shape, *lower.shape), dtype=gs.tc_float, device=gs.device) + lower
 
-
+# Environment class for the Go2 robot
 class Go2Env:
     def __init__(self, num_envs, env_cfg, obs_cfg, reward_cfg, command_cfg, show_viewer=False):
         self.num_envs = num_envs
